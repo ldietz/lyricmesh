@@ -79,7 +79,6 @@ a:hover {
   font-size: small;
 }
 #main {
-  background: url(../images/backgroundmain.png);
   width:      600px;
   margin-left: auto ;
   margin-right: auto ;
@@ -88,7 +87,10 @@ a:hover {
   border-right: 2px solid;
   border-left: 2px solid;
   color:      #000 ;
+  border-top: 2px solid;
+  border-top-color:  #000;
   min-height: 500px;
+  background-color: #A68926;
 }
 #topbackground {
 	background: url(../images/topbackgroundmain.png);
@@ -115,7 +117,6 @@ a:hover {
     padding-left: 20px;
 }
 #mainmid {
-  background: url(../images/backgroundmain.png);
   width:      600px;
   overflow:   wrap;
   padding-top: 10px;
@@ -123,26 +124,29 @@ a:hover {
   margin-right: auto;
   text-align: center;
   min-height: 550px;
+  background-color: #A68926;
+  border-right: 2px solid;
+  border-left: 2px solid;
+  color:      #000;
 }
 #mainmid p{
   vertical-align:text-bottom;
 }
 
 #artist {
-  font-color: white;
-  font-size: large;  
+  width:      600px;
+  padding-top: 5px;
+  font-color: blue;
+  font-size: 30px;  
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: #A68926;
 }
-#artist a:link {
-  color: #ffffff; text-decoration: underline; 
-}
-#artist a:active {
-  color: #ffffff; text-decoration: underline; 
-}
-#artist a:visited {
-  color: #ffffff; text-decoration: underline; 
-}
-#artist a:hover {
-  color: #ffffff; text-decoration: underline; 
+#artist a {
+  color: #ffffff; text-decoration: underline;
+  font-size: large;
+   
 }
 #side {
   float:      right; 
@@ -200,10 +204,12 @@ a:hover {
 }
 
 #bannerside {
-  float:      right;
-  margin-bottom: 10px;
-  background: #2C2774;
-  width: 300px;
+  float: left;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 7px;
+  float: right;
+  clear: float;
 }
 
 #bannermiddle {
@@ -211,24 +217,34 @@ a:hover {
   margin-right: auto; 
   width: 300px;
   text-align: center;
-  margin-top: 15px;
-  background: #2C2774;
   margin-bottom: 10px; 
 }
 
 #bannerbottom {
-  background: #2C2774 ;
-  text-align: left;
-  height: 50px;
-  border-bottom: 2px solid;
-  border-color: #A68926;
+  background: #A68926;
+  text-align: center;
+  height: 135px;
   color: white;
-  font-size:15px ;
+  font-size:15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  border-right: 2px solid;
+  border-left: 2px solid;
+  border-top: 2px solid;
+  border-color:      #000 ;
 }
 #bannerbottom a{
   font-size: 22px;
 }
-
+#bannerleftside {
+  text-align: left;
+  margin-left: 5px;
+  margin-right: auto;
+  float: left;
+  clear: float;
+  font-weight: bold;
+}
 
 
 
