@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>LyricMesh</title>
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    <%= image_tag("logobackdrop.png")  %>
+    <p>
+      <div id="bannerside">
+      <% form_tag '/lyrics/search', :method => 'get' do %>
+        <%= text_field_tag :searchall, params[:searchall] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+      </div>
+      <div id="bannermiddle">
+      <a href="../"> Home </a> &nbsp;
+      <a href="../lyrics/video"> Videos </a> &nbsp;
+      <%= link_to 'Submit', new_lyric_path %> <br />
+      </div>
+    </p>
+  </div>
+
+  <div id="columns">
+    <div id="topbackground">
+    </div>
+    <div id="main">
+      <h2> Browse by Artist </h2>
+      
+      <div id="artist">
+        <a href="../lyrics/artistsearch?search=&artistsearch=a"> A </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=b"> B </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=c"> C </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=d"> D </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=e"> E </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=f"> F </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=g"> G </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=h"> H </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=i"> I </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=j"> J </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=k"> K </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=l"> L </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=m"> M </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=n"> N </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=o"> O </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=p"> P </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=q"> Q </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=r"> R </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=s"> S </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=t"> T </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=u"> U </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=v"> V </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=w"> W </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=x"> X </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=y"> Y </a>
+        <a href="../lyrics/artistsearch?search=&artistsearch=z"> Z </a>
+        <br /><br />
+      </div>
+    </div>
+ <div id="bottombackground">
+    </div>
+  </div>
+</div>
+</body>
+</html>

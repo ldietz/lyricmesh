@@ -1,0 +1,56 @@
+<body>
+  <div id="columns">
+  <div id="splitmainback">
+    <div id="mainleft">
+      <h2> Songs: </h2>
+      <% previous_song = " " %>
+      <% if @songs != nil %>
+      <% for song in @songs -%>
+        <% if previous_song != song.title %>
+           <h3>
+             <a href="../songs/<%=h song.id %>"> <%=h song.title %> </a>
+           </h3>
+         <% end %>  
+         <% previous_song = song.title %>
+      <% end %>
+<<<<<<< HEAD:app/views/search/index.html.erb
+      <% end %>
+      <% if @artists != nil %>
+      <% for artist in @artists -%>
+           <h3>
+             <a href="../artists?artist=<%=h artist.name %>"> <%=h artist.name %> </a> 
+           </h3>
+      <% end %>  
+      <% end %>
+      <br /><br />
+  <div id="bottombackground">
+    <p>
+      All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />
+      If you are the owner of a copyright and would like to have the content removed, please contact dietzl@lyricmesh.com<br />
+      Copyright © 2010 Lyricmesh.com
+    </p>
+=======
+    </div>
+    <div id="mainright">
+      <h2> Artists: </h2>
+      <% previous_song = " " %>
+      <% for artist in @artists -%>
+        <% if previous_song != artist.name %>
+           <h3>
+             <a href="../artists?artist=<%=h artist.name %>"> <%=h artist.name %> </a>
+           </h3>
+         <% end %>  
+         <% previous_song = artist.name %>
+       <% end %> <br /><br />
+    </div>
+  </div>
+      <br /><br />
+  <div id="splitmaiback">
+
+>>>>>>> c53f437ddbf17a0dded5f3ee6b3f468014902e7e:app/views/search/index.html.erb
+  </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

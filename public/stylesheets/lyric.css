@@ -1,0 +1,234 @@
+/* Global styles */
+
+#container {
+	margin: 0px auto;
+	text-align: left;
+	width: 1050px;
+}
+
+h1 {
+  font:  250% sans-serif;
+  color: #ffffff;
+  border-bottom: 3px dotted #77d;
+}
+h2 {
+  color: white;
+  font-size: large;
+}
+h3 {
+        color: #fff
+}
+h4 {
+        color: #fff
+}
+h5 {
+        color: #fff
+}
+p {
+  color: #ffffff;
+}
+body {
+  background-color: #2C2774;
+  text-align: center;
+
+ }
+pre  {
+  font-size: medium;
+  background-color:   #a68926;
+}
+a {
+  font-size: medium;
+}
+
+a:link {
+  color: #ffffff; text-decoration: underline; 
+}
+a:active {
+  color: #ffffff; text-decoration: underline; 
+}
+a:visited {
+  color: #ffffff; text-decoration: underline; 
+}
+a:hover {
+  color: #ffffff; text-decoration: underline; 
+}
+/* Styles for lyrics/index */
+
+
+/* Styles for main page */
+
+#banner {
+  background: #2C2774 ;
+  padding-top: 10px;
+  text-align: center;
+}
+#banner img {
+  width: 604px;
+  margin-left: auto;
+  margin-right: auto;
+  float: center;
+}
+#banner a {
+  font-weight: bold;
+  font-size:large;
+}
+#columns {
+  background: #2C2774;
+}
+#columns a {
+  font-size: small;
+}
+#main {
+  background: url(../images/backgroundmain.png);
+  width:      600px;
+  margin-left: auto ;
+  margin-right: auto ;
+  padding-top: 20px;
+  text-align:center;
+  border-right: 2px solid;
+  border-left: 2px solid;
+  color:      #000 ;
+  min-height: 500px;
+}
+#topbackground {
+	background: url(../images/topbackgroundmain.png);
+	width:      604px;
+	height:     30px;
+    margin-left:auto;
+    margin-right: auto;
+	position:   relative;
+}
+#bottombackground {
+	background-color: #A68926;
+	width:      600px;
+	height:     90px;
+    margin-left:auto;
+    margin-right: auto;
+	clear:      both;
+    text-align: center;
+    vertical-align: bottom;
+}
+#bottombackground p{
+    clear: both;
+    font-size: x-small;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+#mainmid {
+  background: url(../images/backgroundmain.png);
+  width:      600px;
+  overflow:   wrap;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  min-height: 550px;
+}
+#mainmid p{
+  vertical-align:text-bottom;
+}
+
+#artist {
+  font-color: white;
+  font-size: large;  
+}
+#artist a:link {
+  color: #ffffff; text-decoration: underline; 
+}
+#artist a:active {
+  color: #ffffff; text-decoration: underline; 
+}
+#artist a:visited {
+  color: #ffffff; text-decoration: underline; 
+}
+#artist a:hover {
+  color: #ffffff; text-decoration: underline; 
+}
+#side {
+  float:      right; 
+  background: #2C2774;
+  width:      180px;
+  margin-top:10px;
+  overflow: auto;
+}
+#side a {
+  color: white ;
+  font-size: xx-large;
+}
+#side p {
+  color: white ;
+  font-size: xx-large;
+}
+#mainleft {
+  float:      left;
+  width:      350px;
+  padding-left: 50px;
+  
+}
+#mainright {
+  float:      right;
+  width:      150px;
+  padding-right: 50px;
+}
+#splitmainback {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto; 
+  width: 604px;
+}
+#mainmiddle {
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto; 
+  width:      600px;
+  text-align: center;
+}
+#store .entry form, #store .entry form div {
+  display: inline;
+}
+#adleft {
+  float: left;
+  width: 120;
+  margin-left: 10%;
+}
+#notice {
+  border:  2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font:    bold smaller sans serif;
+}
+
+#bannerside {
+  float:      right;
+  margin-bottom: 10px;
+  background: #2C2774;
+  width: 300px;
+}
+
+#bannermiddle {
+  margin-left: auto;
+  margin-right: auto; 
+  width: 300px;
+  text-align: center;
+  margin-top: 15px;
+  background: #2C2774;
+  margin-bottom: 10px; 
+}
+
+#bannerbottom {
+  background: #2C2774 ;
+  text-align: left;
+  height: 50px;
+  border-bottom: 2px solid;
+  border-color: #A68926;
+  color: white;
+  font-size:15px ;
+}
+#bannerbottom a{
+  font-size: 22px;
+}
+
+
+
+

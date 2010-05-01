@@ -1,0 +1,29 @@
+<body>
+
+  <div id="columns">
+  <div id="topbackground">
+  </div>
+    <div id="mainmid">
+      <h2> Select an Artist </h2><br />
+      <% previous_artist = " " %>
+      <% for artist in @artists -%>
+        <% if previous_artist != artist.name %>
+           <h3>
+             <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a>
+           </h3>
+         <% end %>  
+         <% previous_artist = artist.name %>
+      <% end %>
+      <br /><br />
+      <div id="bottombackground">
+      <p>
+        All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />
+        If you are the owner of a copyright and would like to have the content removed, please contact dietzl@lyricmesh.com<br />
+        Copyright © 2010 Lyricmesh.com
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

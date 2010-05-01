@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  artist: MyString
+  album: MyString
+  year: MyString
+  lyrics: MyText
+  image_url: MyString
+
+two:
+  title: MyString
+  artist: MyString
+  album: MyString
+  year: MyString
+  lyrics: MyText
+  image_url: MyString

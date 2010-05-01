@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Artists <%= controller.action_name %></title>
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    <%= image_tag("logobackdrop.png")  %>
+    <p>
+      <div id="bannerside">
+      <% form_tag '/lyrics/search', :method => 'get' do %>
+        <%= text_field_tag :searchall, params[:searchall] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% form_tag lyrics_path, :method => 'get' do %>
+      <% end %>
+      <% form_tag '/lyrics', :method => 'get' do %>
+        <%= text_field_tag :search_name, params[:search] %>
+        <%= submit_tag "SearchAll", :name => nil %>
+      <% form_tag lyrics_path, :method => 'get' do %>
+      <% end %>
+      <% end %>
+    </p>
+      </div>
+    <% end %>
+      <div id="bannermiddle">
+      <a href="../"> Home </a> &nbsp;
+      <a href="../lyrics/video"> Videos </a> &nbsp;
+      <%= link_to 'Submit', new_lyric_path %> <br />
+      </div>
+  </div>
+
+  <div id="columns">
+  <div id="topbackground">
+  </div>
+    <div id="mainmid">
+      <h2> Select an Album </h2><br />
+      <% previous_album = " " %>
+      <% for lyric in @artistall -%>
+        <% if previous_album != lyric.title %>
+           <h3>
+             <a href="../lyrics/album?search=&albumsearch=<%=h lyric.title %>"> <%=h lyric.title %> </a>
+           </h3>
+         <% end %>  
+         <% previous_album = lyric.title %>
+      <% end %>
+      <br /><br />
+    </div>
+  <div id="bottombackground">
+  </div>
+  </div>
+</div>
+</body>
+</html>
+

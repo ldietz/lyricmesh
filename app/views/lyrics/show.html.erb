@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @lyric.title %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%=h @lyric.artist %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%=h @lyric.album %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @lyric.year %>
+</p>
+
+<p>
+  <b>Lyrics:</b>
+  <%=h @lyric.lyrics %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%=h @lyric.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_lyric_path(@lyric) %> |
+<%= link_to 'Back', lyrics_path %>

@@ -1,0 +1,28 @@
+<body>
+  <div id="columns">
+    <div id="side">
+    </div>
+ <div id="topbackground">
+  </div>
+    <div id="mainmid">
+      <% previous_title = " " %>
+      <h4>
+        <%  album_find = @songs.album_id %>
+        <%  artist_find = @albums[album_find-1].artist_id %>
+        <%  print_artist =  @artists[artist_find-1].name %>
+        <a href="../artists?artist=<%= print_artist %>"> <%= print_artist %> </a> <br /><br />
+        <%= @songs.lyrics %>
+      </h4>
+      <br /><br />
+      <div id="bottombackground">
+      <p>
+        All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />
+        If you are the owner of a copyright and would like to have the content removed, please contact dietzl@lyricmesh.com<br />
+        Copyright © 2010 Lyricmesh.com
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

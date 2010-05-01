@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>LyricMesh</title>
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    <%= image_tag("logobackdrop.png")  %>
+    <p>
+      <div id="bannerside">
+      <% form_tag '/lyrics/search', :method => 'get' do %>
+        <%= text_field_tag :searchall, params[:searchall] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </p>
+      </div>
+      <div id="bannermiddle">
+      <a href="../"> Home </a> &nbsp;
+      <a href="../lyrics/video"> Videos </a> &nbsp;
+      <%= link_to 'Submit', new_lyric_path %> <br />
+      </div>
+  </div>
+
+  <div id="columns">
+    <div id="topbackground">
+    </div>
+    <div id="main">
+      <h2> Browse Videos </h2>
+      
+      <div id="artist">
+        <object width="480" height="327"><param name="movie" value="http://www.dailymotion.com/swf/video/x27g79"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed type="application/x-shockwave-flash" src="http://www.dailymotion.com/swf/video/x27g79" width="480" height="327" allowfullscreen="true" allowscriptaccess="always"></embed></object><br />
+        <br /><br />
+      </div>
+    </div>
+ <div id="bottombackground">
+    </div>
+  </div>
+</div>
+</body>
+</html>
