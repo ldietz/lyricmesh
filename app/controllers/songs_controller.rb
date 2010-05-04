@@ -21,8 +21,8 @@ class SongsController < ApplicationController
   end
   
  def show
-    @artists = Artist.find(:all)
-    @albums = Album.find(:all) 
+    @artists = Artist.find(Album.find(Song.find(params[:id]).album_id).artist_id)
+    @albums = Album.find(Song.find(params[:id]).album_id) 
     # @songs = Song.search params[:search]
     @songs = Song.find(params[:id])
 

@@ -1,5 +1,4 @@
 <body>
-<div id="container">
   <div id="columns">
       <div id="adleft">
       </div>
@@ -9,7 +8,9 @@
       <% for album in @albums -%>
         <% if previous_album != album.album %>
            <h3>
-             <a href="../songs?browse=<%=h album.id %>"> <%=h album.album %> </a>
+             <% cd_cover = "../songs?browse=" + album.id.to_s %>
+             <a href="../songs?browse=<%=h album.id %>"> <%=h album.album %> </a><br />
+             <%= link_to image_tag (album.photo_url, :size =>"100x100"), cd_cover  %>
            </h3>
          <% end %>  
          <% previous_album = album.album %>
@@ -23,7 +24,6 @@
       </p>
       </div>
     </div>
-  </div>
 </div>
 </body>
 </html>

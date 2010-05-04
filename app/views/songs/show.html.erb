@@ -7,6 +7,11 @@
     <div id="main">
       <% previous_title = " " %>
       <h4>
+        <%= @songs.id %>
+        <%= @songs.album_id %>
+        <%= @albums.artist_id  %>
+        <%= @artists.name %>
+        <a href="../albums?album=<%= @artists.id %>"> <%= @artists.name %> </a> <br /><br />
         <%= @songs.lyrics %>
       </h4>
       <br /><br />
