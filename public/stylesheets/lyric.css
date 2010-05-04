@@ -74,19 +74,26 @@ a:hover {
 }
 #columns {
   background: #2C2774;
+  text-align: center;
+  color: white;
+  font-size:15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 850px;
 }
 #columns a {
   font-size: small;
 }
 #main {
-  width:      600px;
+  width: 600px;
   margin-left: auto ;
   margin-right: auto ;
   padding-top: 20px;
   text-align:center;
   border-right: 2px solid;
   border-left: 2px solid;
-  color:      #000 ;
+  border-bottom: 2px solid;
+  color: #000 ;
   border-top: 2px solid;
   border-top-color:  #000;
   min-height: 500px;
@@ -102,11 +109,11 @@ a:hover {
 }
 #bottombackground {
 	background-color: #A68926;
-	width:      600px;
-	height:     90px;
+	width:  600px;
+	height: 90px;
     margin-left:auto;
     margin-right: auto;
-	clear:      both;
+	clear:  both;
     text-align: center;
     vertical-align: bottom;
 }
@@ -117,8 +124,8 @@ a:hover {
     padding-left: 20px;
 }
 #mainmid {
-  width:      600px;
-  overflow:   wrap;
+  width:    600px;
+  overflow: wrap;
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -127,14 +134,14 @@ a:hover {
   background-color: #A68926;
   border-right: 2px solid;
   border-left: 2px solid;
-  color:      #000;
+  color:    #000;
 }
 #mainmid p{
   vertical-align:text-bottom;
 }
 
 #artist {
-  width:      600px;
+  width: 600px;
   padding-top: 5px;
   font-color: blue;
   font-size: 30px;  
@@ -153,7 +160,7 @@ a:hover {
   background: #2C2774;
   width:      180px;
   margin-top:10px;
-  overflow: auto;
+  overflow:   auto;
 }
 #side a {
   color: white ;
@@ -164,14 +171,14 @@ a:hover {
   font-size: xx-large;
 }
 #mainleft {
-  float:      left;
-  width:      350px;
+  float: left;
+  width: 350px;
   padding-left: 50px;
   
 }
 #mainright {
-  float:      right;
-  width:      150px;
+  float: right;
+  width: 150px;
   padding-right: 50px;
 }
 #splitmainback {
@@ -191,9 +198,12 @@ a:hover {
   display: inline;
 }
 #adleft {
+  text-align: left;
+  margin-left: 5px;
+  margin-right: auto;
   float: left;
-  width: 120;
-  margin-left: 10%;
+  clear: float;
+  font-weight: bold;
 }
 #notice {
   border:  2px solid red;
@@ -225,7 +235,7 @@ a:hover {
   text-align: center;
   height: 135px;
   color: white;
-  font-size:15px;
+  font-size:13px;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
@@ -235,11 +245,11 @@ a:hover {
   border-color:      #000 ;
 }
 #bannerbottom a{
-  font-size: 22px;
+  font-size: 17px;
 }
 #bannerleftside {
   text-align: left;
-  margin-left: 5px;
+  margin-left: 12px;
   margin-right: auto;
   float: left;
   clear: float;

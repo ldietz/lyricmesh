@@ -2,13 +2,11 @@
   <div id="columns">
     <div id="side">
     </div>
+      <div id="adleft">
+      </div>
     <div id="main">
       <% previous_title = " " %>
       <h4>
-        <%  album_find = @songs.album_id %>
-        <%  artist_find = @albums[album_find-1].artist_id %>
-        <%  print_artist =  @artists[artist_find-1].name %>
-        <a href="../artists?artist=<%= print_artist %>"> <%= print_artist %> </a> <br /><br />
         <%= @songs.lyrics %>
       </h4>
       <br /><br />
