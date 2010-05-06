@@ -3,7 +3,10 @@
       <div id="adleft">
       </div>
       <div id="adright">
-        <h3> Genre:<br/> <%= @artist.genre %>
+        <h3> <%= @artist.name %>
+        <%= image_tag (@artist.image_url, :size =>"140x140") %>
+        Genre:<br/> <%= @artist.genre %><br/>
+        </h3>
       </div>
     <div id="main">
       <h2> Select an Album<br />

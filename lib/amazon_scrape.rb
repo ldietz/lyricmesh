@@ -34,3 +34,7 @@ end
 end
 
 
+
+
+#    @pull2 = Amazon::Ecs.item_search(artist, {:type => 'Keywords', :response_group => 'SimilarProducts', :sort => 'relevancerank', :item_page => '1', :search_index => 'Music'})
+# @pull.tems.first.get('similarproduct[*]/asin(or title)')
