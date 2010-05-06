@@ -2,7 +2,7 @@
 class SongsController < ApplicationController
   def index
    # @songs = Song.search(params[:search+:])
-   # @artists = Song.search(params[:artist])
+    # @artists = Song.search(params[:artist])
     @browse = Song.browse params[:browse] 
     respond_to do |format|
       format.html # index.html.erb

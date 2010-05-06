@@ -20,27 +20,29 @@ module PopulateLyrics
           @num = 0
           songs_page.css(".Page p").each do |album|
             @num += 1
-            @album = Album.create(:artist_id => @artist.id, :album => @albums[@num-1], :year => " ", :photo_url => " ")
-            puts "Album Iteration: #{@num}: #{@albums[@num-1]}"
-            album.css("a").each do |song|
+            unless @albums[@num-1] == nil
+              @album = Album.create(:artist_id => @artist.id, :album => @albums[@num-1], :year => " ", :photo_url => " ")
               puts "Album Iteration: #{@num}: #{@albums[@num-1]}"
-              song_album = @albums[@num - 1]
-              if song_album && song[:class] != 'Ringtones'
-                unless song[:href][/amazon/] || song[:href][/http/]
-                  song_url = song[:href].gsub('..', '')
-                  puts song_url
-                  lyric_page = Nokogiri::HTML(open(main_url.chop + song_url))  rescue  OpenURI::HTTPError
-                  unless lyric_page == OpenURI::HTTPError
-                    song_artist  = lyric_page.at_css(".ArtistTitle").content
-                    song_title = song.content
-                    song_lyrics = lyric_page.at_css("#LyricsMainTable")
-                    start_position = song_lyrics.to_s =~ /END OF RINGTONE 1/
-                    start_position = start_position +24
-                    end_position = song_lyrics.to_s =~ /<br><br><br><br>/
-                    end_position = end_position -1
-                    song_lyrics =  song_lyrics.to_s.slice!(start_position..end_position)
-
-                    Song.create(:album_id => @album.id, :title => song_title, :lyrics => song_lyrics )	
+              album.css("a").each do |song|
+                puts "Album Iteration: #{@num}: #{@albums[@num-1]}"
+                song_album = @albums[@num - 1]
+                if song_album && song[:class] != 'Ringtones'
+                  unless song[:href][/amazon/] || song[:href][/http/]
+                    song_url = song[:href].gsub('..', '')
+                    puts song_url
+                    lyric_page = Nokogiri::HTML(open(main_url.chop + song_url))  rescue  OpenURI::HTTPError
+                    unless lyric_page == OpenURI::HTTPError
+                      song_artist  = lyric_page.at_css(".ArtistTitle").content
+                      song_title = song.content
+                      song_lyrics = lyric_page.at_css("#LyricsMainTable")
+                      start_position = song_lyrics.to_s =~ /END OF RINGTONE 1/
+                      start_position = start_position +24
+                      end_position = song_lyrics.to_s =~ /<br><br><br><br>/
+                      unless end_position == false
+                        end_position = end_position -1
+                        song_lyrics =  song_lyrics.to_s.slice!(start_position..end_position)
+		    
+                        Song.create(:album_id => @album.id, :title => song_title, :lyrics => song_lyrics )	
                     
                     
                   #  Lyric.create(:title => song_title,
@@ -51,9 +53,11 @@ module PopulateLyrics
                   #               :image_url => "" )
                     
                     
-                    puts song_artist
-                    puts song_title
-                    puts song_album
+                        puts song_artist
+                        puts song_title
+                        puts song_album
+                      end
+                    end
                   end
                 end
               end

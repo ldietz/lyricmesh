@@ -79,7 +79,13 @@ a:hover {
   font-size:15px;
   margin-left: auto;
   margin-right: auto;
-  width: 850px;
+  width: 923px;
+  background-color: #A68926;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-color:  #000;
 }
 #columns a {
   font-size: small;
@@ -94,8 +100,6 @@ a:hover {
   border-left: 2px solid;
   border-bottom: 2px solid;
   color: #000 ;
-  border-top: 2px solid;
-  border-top-color:  #000;
   min-height: 500px;
   background-color: #A68926;
 }
@@ -199,12 +203,28 @@ a:hover {
 }
 #adleft {
   text-align: left;
-  margin-left: 5px;
+  margin-left: 0px;
   margin-right: auto;
   float: left;
   clear: float;
   font-weight: bold;
 }
+#adright {
+  text-align: left;
+  margin-left: auto;
+  margin-right: 1px;
+  margin-top: 40px;
+  float: right;
+  clear: float;
+  font-weight: bold;
+  word-wrap: break-word;
+  overflow: auto;
+  width: 150px;
+}
+#adright p{
+  font-size: x-small;
+}
+
 #notice {
   border:  2px solid red;
   padding: 1em;
@@ -242,7 +262,7 @@ a:hover {
   border-right: 2px solid;
   border-left: 2px solid;
   border-top: 2px solid;
-  border-color:      #000 ;
+  border-color:      #000;
 }
 #bannerbottom a{
   font-size: 17px;
@@ -254,6 +274,7 @@ a:hover {
   float: left;
   clear: float;
   font-weight: bold;
+  overflow: auto;
 }
 
 

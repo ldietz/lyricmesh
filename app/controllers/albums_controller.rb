@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   def index
+    @artist = Artist.find(Album.search_title(params[:album]).first.artist_id)
     @albums = Album.search_title(params[:album])
     respond_to do |format|
       format.html # index.html.erb
