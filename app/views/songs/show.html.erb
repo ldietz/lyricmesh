@@ -1,7 +1,7 @@
 <body>
   <div id="columns">
       <div id="adleft">
-        <%= render :partial => 'adcode', :locals => {:post => @post} %>
+        <% render :partial => 'adcode', :locals => {:post => @post} %>
       </div>
       <div id="adright">
         <%=  image_tag (@albums.photo_url, :size =>"140x140") %>

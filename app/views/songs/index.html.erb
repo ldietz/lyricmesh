@@ -3,7 +3,11 @@
       <div id="adleft">
       </div>
       <div id="adright">
-        
+        <%=  image_tag (@album.photo_url, :size =>"140x140") %>
+        <h5> <%= @album.album %> <%= @album.year %> </h5>
+        <p>
+          <%= @album.description %>
+        </p>       
       </div>
     <div id="main">
       <h2> Select a Song </h2><br />
