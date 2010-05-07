@@ -58,7 +58,10 @@ a:hover {
 /* Styles for main page */
 
 #banner {
-  background: #2C2774 ;
+  margin-left: auto;
+  margin-right: auto;
+  background: #2C2774;
+  width: 610px;
   padding-top: 10px;
   text-align: center;
 }
@@ -81,11 +84,11 @@ a:hover {
   margin-right: auto;
   width: 923px;
   background-color: #A68926;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-  border-right: 2px solid;
-  border-color:  #000;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
+  border-right: 4px solid;
+  border-color:  #250517;
 }
 #columns a {
   font-size: small;
@@ -98,7 +101,6 @@ a:hover {
   text-align:center;
   border-right: 2px solid;
   border-left: 2px solid;
-  border-bottom: 2px solid;
   color: #000 ;
   min-height: 500px;
   background-color: #A68926;
@@ -222,7 +224,11 @@ a:hover {
   width: 150px;
 }
 #adright p{
-  font-size: x-small;
+  font-size: 12px;
+}
+#adright a{
+  font-size: 12px;
+  font-weight: bold;
 }
 
 #notice {
@@ -277,5 +283,18 @@ a:hover {
   overflow: auto;
 }
 
-
-
+#song1 {
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
+  border-top: 4px solid;
+  border-color: black;
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  background: #A68926;
+  float: right;
+  width:  320px;
+}
+#song1 a{
+  font-size: small;
+}

@@ -4,13 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
-  <title><%= @songs.title %> Lyrics</title>
+  <title><%= @songs.title %> Lyrics (lyricmesh)</title>
   <%= stylesheet_link_tag 'scaffold', 'lyric' %>
 </head>
 <body>
+  <script src="http://www.ilike.com/api/js"></script>
+  <script> _iLikeDevKey = "dk01kM4JjK_WrFCj7UG4-qH7yNwW7vCUlJICg43lu5oqKys="; </script> 
+  <div id="song1" /> 
+  <script>
+    iLikeDisplaySong({elId: "song1", songName: "<%= @songs.title %>", artistName: "<%= @artists.name %>"});
+  </script>
+  </div>
   <div id="banner">
     <%= image_tag("logobackdrop.png")  %>
-
 </div>
 <div id="bannerbottom">
     <p>
