@@ -3,7 +3,9 @@ class SearchController < ApplicationController
     @artists_all =  Artist.find(:all)
     @artists = Artist.search params[:q] if params[:type] == 'artist'
     @albums = Album.find(:all)
-    @songs = Song.search params[:q] if params[:type] == 'song'
+    # @current_artist = Artist.find(Album.find(Song.search(params[:q]).album_id).artist_id)
+    # @current_album = Album.find(Song.search(params[:q]).album_id)
+    @songs = Song.search(params[:q]) if params[:type] == 'song'
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @artist }

@@ -3,25 +3,37 @@
       <div id="adleft">
       </div>
     <div id="main">
-      <h2> Select a Song/Artist </h2><br />
-      <% previous_song = " " %>
-      <% if @songs != nil %>
-      <% for song in @songs -%>
-        <% if previous_song != song.title %>
-           <h3>
-             <a href="../songs/<%=h song.id %>"> <%=h song.title %> </a>
-           </h3>
-         <% end %>
-         <% previous_song = song.title %>
-      <% end %>
-      <% end %>
-      <% if @artists != nil %>
-      <% for artist in @artists -%>
-           <h3>
-             <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a>
-           </h3>
-      <% end %>
-      <% end %>
+      <h2> Search Results </h2><br />
+        <% previous_song = " " %>
+        <% if @songs != nil %>
+          <% for song in @songs -%>
+          <% @current_album = Album.find(song.album_id) %>
+          <% @current_artist = Artist.find(Album.find(song.album_id).artist_id) %>
+          <% @count = (@current_album.songs.count)/2 %>
+
+            <div class="searchleft">
+            <% for num in 0..@count -%><br/>
+              <a href=""> <%=h @current_album.songs[num].title %> </a>
+            <% end %>
+            </div>
+
+          <div id="mainmiddle">
+          <h3>
+            <a href="../songs/<%=h song.id %>&?album=<%=h @current_artist.id %>"> <%=h song.title %> </a><br/>
+            <a href="../albums?album=<%=h @current_artist.id %>">(<%= @current_artist.name %>)</a>  <br/>
+            <% cd_cover = "../songs?browse=" + @current_album.id.to_s %>
+            <%= link_to image_tag (@current_album.photo_url, :size =>"100x100"), cd_cover  %>
+          </h3>
+          </div>
+          <% end %>
+        <% end %>
+        <% if @artists != nil %>
+          <% for artist in @artists -%>
+            <h3>
+              <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a>
+            </h3>
+          <% end %>
+        <% end %>
       <br /><br />
   <div id="bottombackground">
     <p>

@@ -196,9 +196,6 @@ a:hover {
   float: left; 
   width: 200px;
 }
-#store .entry form, #store .entry form div {
-  display: inline;
-}
 #adleft {
   text-align: left;
   margin-left: 0px;
@@ -293,4 +290,14 @@ a:hover {
 }
 #song1 a{
   font-size: small;
+}
+
+.searchleft {
+  float: left;
+  clear: left;
+  width: 200px;
+}
+
+.searchleft a{
+  font-size: 50%;
 }
