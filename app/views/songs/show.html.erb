@@ -9,7 +9,8 @@
         Other Albums:
         <% for num in 0.. @albums.count-1 %>
           <% if @albums[num].album != @current_album.album %>
-            <%=  image_tag (@albums[num].photo_url, :size =>"110x110") %><br/>
+            <% cd_cover = "../songs?browse=" + @albums[num].id.to_s %>
+            <%= link_to  image_tag (@albums[num].photo_url, :size =>"110x110"), cd_cover %><br/>
             <%= @albums[num].album %><br/><br/>
           <% end %>
         <% end %></h5>

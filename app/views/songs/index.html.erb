@@ -3,9 +3,10 @@
       <div id="adleft">
       </div>
       <div id="adright">
-        <%=  image_tag (@album.photo_url, :size =>"140x140") %>
         <h5> <%= @album.album %> <%= @album.year %> </h5>
         <p>
+          <% cd_cover = "../songs?browse=" + @album.id.to_s %>
+          <%= link_to  image_tag (@album.photo_url, :size =>"110x110"), cd_cover %><br/>
           <%= @album.description %>
         </p>       
       </div>

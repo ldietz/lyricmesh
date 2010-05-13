@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   def index
    # @songs = Song.search(params[:search+:])
     # @artists = Song.search(params[:artist])
-    @artist = Artist.find(Album.find(Song.find(params[:id]).album_id).artist_id)
+    @artist = Artist.find(Album.find(Song.browse(params[:browse]).first.album_id).artist_id)
     @album = Album.find(Song.browse(params[:browse]).first.album_id)
     @browse = Song.browse params[:browse] 
     respond_to do |format|
