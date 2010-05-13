@@ -88,7 +88,7 @@ a:hover {
   border-bottom: 4px solid;
   border-left: 4px solid;
   border-right: 4px solid;
-  border-color:  #250517;
+  border-color:  #000;
 }
 #columns a {
   font-size: small;
@@ -177,15 +177,14 @@ a:hover {
   font-size: xx-large;
 }
 #mainleft {
+  padding-top: 66px;
   float: left;
-  width: 350px;
-  padding-left: 50px;
-  
+  width: 200px;
 }
 #mainright {
-  float: right;
-  width: 150px;
-  padding-right: 50px;
+  padding-top: 66px;
+  float: left;
+  width: 200px;
 }
 #splitmainback {
   height: 100%;
@@ -194,11 +193,8 @@ a:hover {
   width: 604px;
 }
 #mainmiddle {
-  padding-top: 10px;
-  margin-left: auto;
-  margin-right: auto; 
-  width:      600px;
-  text-align: center;
+  float: left; 
+  width: 200px;
 }
 #store .entry form, #store .entry form div {
   display: inline;
@@ -293,7 +289,7 @@ a:hover {
   margin-top: 20px;
   background: #A68926;
   float: right;
-  width:  320px;
+  width:  240px;
 }
 #song1 a{
   font-size: small;

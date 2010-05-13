@@ -1,10 +1,10 @@
 module AmazonScrape
 require 'amazon/ecs'
+def amascrape
+  Amazon::Ecs.options = {:aWS_access_key_id => 'AKIAJAGMNKZHCOU7CBMQ',
+    :aWS_secret_key => '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'}
 
-Amazon::Ecs.options = {:aWS_access_key_id => 'AKIAJAGMNKZHCOU7CBMQ',
-  :aWS_secret_key => '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'}
-
-Album.all.each do |q|
+  Album.all.each do |q|
     puts q
     artist = Artist.find(q.artist_id).name
     puts artist
@@ -17,10 +17,19 @@ Album.all.each do |q|
       # title = @pull.items.first.get('title')
       # price = @pull.items.first.get('formattedprice')
       if @pull.items.first != nil 
-        url = @pull.items.first.get('mediumimage/url')
+        if @pull.items.first.get('mediumimage/url') != nil
+          url = @pull.items.first.get('mediumimage/url')
+        else url = ""
+        end
         puts url
-        date = @pull.items.first.get('releasedate').slice(0..3)
-        album_description = @pull.items.first.get('editorialreview/content')
+        if @pull.items.first.get('releasedate') != nil
+          date = @pull.items.first.get('releasedate').slice(0..3)
+        else date = ""
+        end
+        if @pull.items.first.get('editorialreview/content') != nil
+          album_description = @pull.items.first.get('editorialreview/content')
+        else album_description = ""
+        end  
         #artist_description = @pull2.items.first.get('')
         Album.update( q.id, :photo_url => url, :year => date )
         if q.description == ""
@@ -31,6 +40,7 @@ Album.all.each do |q|
       end
     end
   end
+end
 end
 
 

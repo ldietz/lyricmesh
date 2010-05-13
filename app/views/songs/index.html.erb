@@ -15,7 +15,7 @@
       <% for song in @browse -%>
         <% if previous_song != song.title %>
            <h3>
-             <a href="../songs/<%=h song.id %>"> <%=h song.title %> </a>
+             <a href="../songs/<%=h song.id %>&?album=<%=h @artist.id %>"> <%=h song.title %> </a>
            </h3>
          <% end %>  
          <% previous_song = song.title %>
