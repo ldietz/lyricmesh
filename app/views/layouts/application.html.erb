@@ -12,36 +12,32 @@
     <%= yield :banner %>
     <%= image_tag("logobackdrop.png")  %>
   </div>
-<div id="bannerbottom">
+  <div id="bannerbottom">
     <p>
       <div id="bannermiddle">
-      <a href="../"> Home </a> &nbsp;
-      <%= link_to 'Submit', new_lyric_path %> <br />
-    </p>
- </div>
+        <a href="../">Home</a> &nbsp;
+        <%= link_to 'Genres', genre_index_path %> <br />
+      </p>
+      </div>
     <div id="artist">
       <% for a in 'a'..'z' %>
-      <a href="../artists?artist=<%= a %>"><%= a.upcase %> </a>
-      <% end %>
-      <br /><br />
+        <a href="../artists?artist=<%= a %>"><%= a.upcase %> </a>
+      <% end %><br /><br />
     </div>
-      <div id="bannerleftside">      
-        Search by song or artist or browse by artist:
-      </div>
-      <div id="bannerside">
-        <% form_tag '/search', :multipart => true, :method => 'get' do %>
-        <%= text_field_tag :q %>
-        <%= submit_tag "Search", :name => nil %><br />
-        <%= radio_button_tag(:type, 'song', :checked => true) %> 
-        <%= label_tag :song %>
-        <%= radio_button_tag(:type, 'artist') %>
-        <%= label_tag :artist %> 
-        <% end %>
-      </div>
-</div>
-
-
-<%= yield %>
-
+    <div id="bannerleftside">      
+      Search by song or artist or browse by artist:
+    </div>
+    <div id="bannerside">
+      <% form_tag '/search', :multipart => true, :method => 'get' do %>
+      <%= text_field_tag :q %>
+      <%= submit_tag "Search", :name => nil %><br />
+      <%= radio_button_tag(:type, 'song', :checked => true) %> 
+      <%= label_tag :song %>
+      <%= radio_button_tag(:type, 'artist') %>
+      <%= label_tag :artist %> 
+      <% end %>
+    </div>
+  </div>
+  <%= yield %>
 </body>
 </html>

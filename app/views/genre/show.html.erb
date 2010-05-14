@@ -1,10 +1,15 @@
-<body>
-  <div id="columns">
-      <div id="adleft">
-      </div>
-    <div id="main">
-      <div id="mainleft">
+<body> 
+<div id="columns">
+<% content_for :banner do %>
+<% end %>
+
+  <div id="adleft">
+    <% render :partial => 'adcode', :locals => {:post => @post} %>
+  </div>
+  <div id="main">
+    <div id="mainleft">
       <% @count = @artists.count %>
+      <% if @count != 0 %>
       <% for num in 0..@count/3 -%>
         <h3>
           <a href="../albums?album=<%=h @artists[num].id %>"> <%=h @artists[num].name %> </a>
@@ -22,18 +27,18 @@
       <div id="mainright">
         <% for num in (@count*2/3)+1..@count-1 -%>
             <h3>
-             <a href="../albums?album=<%=h @artists[num].id %>"> <%=h @artists[num].name %> </a>
+             <a href="../albums?album=<%=h @artists[num] %>"> <%=h @artists[num].name %> </a>
             </h3>
         <% end %>
       </div>
+      <% end %>
       <br /><br />
-      <div id="bottombackground">
+    <div id="bottombackground">
       <p>
         All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />
         If you are the owner of a copyright and would like to have the content removed, please contact dietzl@lyricmesh.com<br />
         Copyright © 2010 Lyricmesh.com
       </p>
-      </div>
     </div>
   </div>
 </div>

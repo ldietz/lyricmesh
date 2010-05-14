@@ -75,4 +75,4 @@ Rails::Initializer.run do |config|
   # :forum_observer
 end
 
-require "will_paginate"
+# require "will_paginate"

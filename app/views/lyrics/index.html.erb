@@ -2,14 +2,18 @@
 <div id="columns">
 <% content_for :banner do %>
 <% end %>
-
   <div id="adleft">
     <% render :partial => 'adcode', :locals => {:post => @post} %>
   </div>
   <div id="main">
     <h3>
       Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above
-    </h3> 
+    </h3>
+    <% 100.times do %>
+    <% for artist in @artists -%>
+      <%= image_tag (artist.albums.first.photo_url, :size =>"40x40") -%>
+    <% end %>
+    <% end %>
     <div id="bottombackground">
       <p>
         All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />

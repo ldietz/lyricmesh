@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.alpha 'alpha/:letter', :controller => 'artists', :action => 'alpha'
-  map.resources :lyrics 
+  map.resources :lyrics
+  map.resources :genre
   map.resources :artists
   map.resources :albums
   map.resources :songs

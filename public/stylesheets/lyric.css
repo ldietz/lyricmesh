@@ -177,12 +177,12 @@ a:hover {
   font-size: xx-large;
 }
 #mainleft {
-  padding-top: 66px;
+  padding-top: 33px;
   float: left;
   width: 200px;
 }
 #mainright {
-  padding-top: 66px;
+  padding-top: 33px;
   float: left;
   width: 200px;
 }
@@ -295,9 +295,33 @@ a:hover {
 .searchleft {
   float: left;
   clear: left;
-  width: 200px;
+  width: 224px;
+  text-align: right;
 }
 
-.searchleft a{
-  font-size: 50%;
+#columns .searchleft a{
+  font-size: 80%;
+  line-height: 115%;
+}
+
+.searchright {
+  float: right;
+  clear: right;
+  width: 226px;
+  text-align: left;
+}
+
+#columns .searchright a{
+  font-size: 80%;
+  line-height: 115%;
+}
+
+#searchmiddle {
+  float: left;
+  width: 150px;
+  overflow: visible;
+}
+
+#columns .genre a{
+  font-size: small;
 }

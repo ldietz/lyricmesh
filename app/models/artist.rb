@@ -12,6 +12,10 @@ class Artist < ActiveRecord::Base
     # :order => 'name'
   end
 
+  def self.search_genre(search)
+    find(:all, :conditions => ['genre LIKE ?', "#{search}%"])
+  end
+  
   define_index do
     indexes :name
   end

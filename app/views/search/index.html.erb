@@ -9,20 +9,23 @@
           <% for song in @songs -%>
           <% @current_album = Album.find(song.album_id) %>
           <% @current_artist = Artist.find(Album.find(song.album_id).artist_id) %>
-          <% @count = (@current_album.songs.count)/2 %>
-
-            <div class="searchleft">
-            <% for num in 0..@count -%><br/>
-              <a href=""> <%=h @current_album.songs[num].title %> </a>
+          <% @count = (@current_album.songs.count) %>
+            <div class="searchleft"><br/><br/><br/>
+            <% for num in 0..@count/2-1 -%><br/>
+              <a href="../songs/<%=h @current_album.songs[num].id %>&?album=<%=h @current_artist.id %>"> <%=h @current_album.songs[num].title %> </a>
             <% end %>
             </div>
-
-          <div id="mainmiddle">
-          <h3>
-            <a href="../songs/<%=h song.id %>&?album=<%=h @current_artist.id %>"> <%=h song.title %> </a><br/>
+            <div class="searchright"><br/><br/><br/>
+            <% for num in @count/2..@count-1 -%><br/>
+              <a href="../songs/<%=h @current_album.songs[num].id %>&?album=<%=h @current_artist.id %>"> <%=h @current_album.songs[num].title %> </a>
+            <% end %>
+            </div>     
+            <div id="searchmiddle">
+              <h3>          
+              <a href="../songs/<%=h song.id %>&?album=<%=h @current_artist.id %>"> <%=h song.title %> </a><br/>   
             <a href="../albums?album=<%=h @current_artist.id %>">(<%= @current_artist.name %>)</a>  <br/>
             <% cd_cover = "../songs?browse=" + @current_album.id.to_s %>
-            <%= link_to image_tag (@current_album.photo_url, :size =>"100x100"), cd_cover  %>
+            <%= link_to image_tag (@current_album.photo_url, :size =>"120x120"), cd_cover  %>
           </h3>
           </div>
           <% end %>

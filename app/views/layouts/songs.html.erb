@@ -4,28 +4,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta content="Lyrics to  name="description" /> 
+  <meta content="Lyrics to  name=description" /> 
   <title> Lyrics</title>
   <%= stylesheet_link_tag 'scaffold', 'lyric' %>
 </head>
-<boseady>
+<body>
   <div id="banner">
     <%= image_tag("logobackdrop.png")  %>
-
-</div>
-<div id="bannerbottom">
+  </div>
+  <div id="bannerbottom">
     <p>
       <div id="bannermiddle">
-      <a href="../"> Home </a> &nbsp;
-      <%= link_to 'Submit', new_lyric_path %> <br />
+        <a href="../"> Home </a> &nbsp;
+        <%= link_to 'Genres', genre_index_path %> <br />
     </p>
- </div>
-    <div id="artist">
-      <% for a in 'a'..'z' %>
-      <a href="../artists?artist=<%= a %>"><%= a.upcase %> </a>
-      <% end %>
-      <br /><br />
-    </div>
+      </div>
+      <div id="artist">
+        <% for a in 'a'..'z' %>
+          <a href="../artists?artist=<%= a %>"><%= a.upcase %> </a>
+        <% end %><br /><br />
+      </div>
       <div id="bannerleftside">      
         Search by song or artist or browse by artist:
       </div>
@@ -39,10 +37,7 @@
         <%= label_tag :artist %> 
         <% end %>
       </div>
-</div>
-
-
-<%= yield %>
-
+  </div>
+  <%= yield %>
 </body>
 </html>
