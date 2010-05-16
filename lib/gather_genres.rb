@@ -1,5 +1,5 @@
-module GenreHelper
-  def gather_genres
+module GatherGenres
+  def gather
     @genres = Array.new
     Artist.all.each do |artist|
       @add_new_genre = 1
@@ -14,6 +14,5 @@ module GenreHelper
       end
     end
     @genres.sort!
-    @count = @genres.count
   end
 end

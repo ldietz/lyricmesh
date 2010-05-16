@@ -6,6 +6,9 @@
       <h2> Search Results </h2><br />
         <% previous_song = " " %>
         <% if @songs != nil %>
+          <% if params[:q] != @songs.suggestion %> <h4> Did you mean 
+            <a href="../search?q=<%= @songs.suggestion %>&type=song">"<%= @songs.suggestion %>" </a>
+          <% end %></h4>
           <% for song in @songs -%>
           <% @current_album = Album.find(song.album_id) %>
           <% @current_artist = Artist.find(Album.find(song.album_id).artist_id) %>
@@ -31,9 +34,16 @@
           <% end %>
         <% end %>
         <% if @artists != nil %>
+          <% if params[:q] != @artists.suggestion %> <h4> Did you mean 
+            <a href="../search?q=<%= @artists.suggestion %>&type=artist">"<%= @artists.suggestion %>" </a>
+          <% end %></h4>
           <% for artist in @artists -%>
             <h3>
-              <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a>
+              <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a><br/>
+              <% for album in artist.albums -%>
+                <% cd_cover = "../songs?browse=" + album.id.to_s %>
+                <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>
+              <% end %>
             </h3>
           <% end %>
         <% end %>

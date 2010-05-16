@@ -2,42 +2,34 @@
 <div id="columns">
 <% content_for :banner do %>
 <% end %>
-
   <div id="adleft">
     <% render :partial => 'adcode', :locals => {:post => @post} %>
   </div>
   <div id="main">
-    <div class="genre">
-    <div id="mainleft">
-    <h3>
-    <a href="../genre/show?genre=pop"> Pop </a><br/><br/>
-    <a href="../genre/show?genre=hip hop"> Hip Hop </a><br/><br/>
-    <a href="../genre/show?genre=indie"> Indie </a><br/><br/>
-    <a href="../genre/show?genre=hard rock"> Hard Rock </a><br/><br/>
-    <a href="../genre/show?genre=electronic"> Electronic  </a><br/><br/>
-    </h3>
-    </div>
-    <div id="mainmiddle">
-    <h2> Browse by Genre </h2>
-    <h3>
-    <a href="../genre/show?genre=rock"> Rock </a><br/><br/>
-    <a href="../genre/show?genre=country"> Country </a><br/><br/>
-    <a href="../genre/show?genre=alternative"> Alternative </a><br/><br/>
-    <a href="../genre/show?genre=comedy"> Comedy </a><br/><br/>
-    <a href="../genre/show?genre=metal"> Metal </a><br/><br/>
-    </h3>
-    </div>
-    <div id="mainright">
-    <h3>
-    <a href="../genre/show?genre=80S"> 80's </a><br/><br/>
-    <a href="../genre/show?genre=swedish"> Swedish </a><br/><br/>
-    <a href="../genre/show?genre=rnb"> RNB </a><br/><br/>
-    <a href="../genre/show?genre=punk"> Punk </a><br/><br/>
-    <a href="../genre/show?genre=female vocalists"> Female Vocalists </a><br/><br/>
-    </h3>
-    </div>
-    <h3> 
-    </div>
+      <div id="mainleft">
+      <% gather_genres %>
+      <% for num in 0..@count/3 -%>
+        <h3>
+          <a href="../genre/show?genre=<%= @genres[num] %>"><%= @genres[num] %></a><br/>
+        </h3>
+      <% end %>
+      </div>
+      <div id="mainmiddle">
+        <h2> Select an Artist </h2>
+        <% for num in (@count/3)+1..@count*2/3 -%>
+            <h3>
+              <a href="../genre/show?genre=<%= @genres[num] %>"><%= @genres[num] %></a><br/>
+            </h3>
+        <% end %>
+      </div>
+      <div id="mainright">
+        <% for num in (@count*2/3)+1..@count-1 -%>
+            <h3>
+          <a href="../genre/show?genre=<%= @genres[num] %>"><%= @genres[num] %></a><br/>
+            </h3>
+        <% end %>
+      </div>
+      <br /><br />
     <div id="bottombackground">
       <p>
         All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />

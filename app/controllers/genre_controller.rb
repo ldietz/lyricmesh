@@ -1,6 +1,6 @@
 class GenreController < ApplicationController
   def index
-    @pop = Artist.search_genre(params[:genre])
+    @artists = Artist.find(:all)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @artist }
