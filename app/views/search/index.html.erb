@@ -1,62 +1,11 @@
-<body>
-  <div id="columns">
-      <div id="adleft">
-      </div>
-    <div id="main">
-      <h2> Search Results </h2><br />
-        <% previous_song = " " %>
-        <% if @songs != nil %>
-          <% if params[:q] != @songs.suggestion %> <h4> Did you mean 
-            <a href="../search?q=<%= @songs.suggestion %>&type=song">"<%= @songs.suggestion %>" </a>
-          <% end %></h4>
-          <% for song in @songs -%>
-          <% @current_album = Album.find(song.album_id) %>
-          <% @current_artist = Artist.find(Album.find(song.album_id).artist_id) %>
-          <% @count = (@current_album.songs.count) %>
-            <div class="searchleft"><br/><br/><br/>
-            <% for num in 0..@count/2-1 -%><br/>
-              <a href="../songs/<%=h @current_album.songs[num].id %>&?album=<%=h @current_artist.id %>"> <%=h @current_album.songs[num].title %> </a>
-            <% end %>
-            </div>
-            <div class="searchright"><br/><br/><br/>
-            <% for num in @count/2..@count-1 -%><br/>
-              <a href="../songs/<%=h @current_album.songs[num].id %>&?album=<%=h @current_artist.id %>"> <%=h @current_album.songs[num].title %> </a>
-            <% end %>
-            </div>     
-            <div id="searchmiddle">
-              <h3>          
-              <a href="../songs/<%=h song.id %>&?album=<%=h @current_artist.id %>"> <%=h song.title %> </a><br/>   
-            <a href="../albums?album=<%=h @current_artist.id %>">(<%= @current_artist.name %>)</a>  <br/>
-            <% cd_cover = "../songs?browse=" + @current_album.id.to_s %>
-            <%= link_to image_tag (@current_album.photo_url, :size =>"120x120"), cd_cover  %>
-          </h3>
-          </div>
-          <% end %>
-        <% end %>
-        <% if @artists != nil %>
-          <% if params[:q] != @artists.suggestion %> <h4> Did you mean 
-            <a href="../search?q=<%= @artists.suggestion %>&type=artist">"<%= @artists.suggestion %>" </a>
-          <% end %></h4>
-          <% for artist in @artists -%>
-            <h3>
-              <a href="../albums?album=<%=h artist.id %>"> <%=h artist.name %> </a><br/>
-              <% for album in artist.albums -%>
-                <% cd_cover = "../songs?browse=" + album.id.to_s %>
-                <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>
-              <% end %>
-            </h3>
-          <% end %>
-        <% end %>
-      <br /><br />
-  <div id="bottombackground">
-    <p>
-      All lyrics are property and copyright of their owners. All lyrics provided for educational purposes only.<br />
-      If you are the owner of a copyright and would like to have the content removed, please contact dietzl@lyricmesh.com<br />
-      Copyright © 2010 Lyricmesh.com
-    </p>
+<div id="columns">
+  <div id="adleft">
+    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
   </div>
-    </div>
+  <div id="main">
+    <h3>
+      Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above
+    </h3>
+    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
   </div>
 </div>
-</body>
-</html>

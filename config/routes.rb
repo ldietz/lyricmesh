@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.alpha 'alpha/:letter', :controller => 'artists', :action => 'alpha'
+  map.genre 'search/browsegenres', :controller => 'search', :action => 'browsegenres'
+  map.show_genre 'search/showgenres', :controller => 'search', :action => 'showgenres'
+
   map.resources :lyrics
-  map.resources :genre
   map.resources :artists
   map.resources :albums
   map.resources :songs
@@ -37,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "lyrics"
+  map.root :controller => "search"
 
   # See how all your routes lay out with "rake routes"
 

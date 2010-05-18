@@ -1,0 +1,34 @@
+<div id="columns">
+  <div id="adleft">
+    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
+  </div>
+  <div id="main">
+    <% @count = @artists.count %>
+    <% @album_url= "../content/albums?album="  %>
+    <% if @count != 0 %>
+    <div id="mainleft">
+      <% for num in 0..@count/3 -%>
+        <h3>
+          <%= link_to( @artists[num].name, @album_url+@artists[num].id.to_s ) %>
+        </h3>
+      <% end %>
+    </div>
+    <div id="mainmiddle">
+      <h2> Select an Artist </h2>
+      <% for num in (@count/3)+1..@count*2/3 -%>
+        <h3>
+          <%= link_to( @artists[num].name, @album_url+@artists[num].id.to_s ) %>
+        </h3>
+      <% end %>
+    </div>
+    <div id="mainright">
+      <% for num in (@count*2/3)+1..@count-1 -%>
+        <h3>
+          <%= link_to( @artists[num].name, @album_url+@artists[num].id.to_s ) %>
+        </h3>
+      <% end %>
+    </div>
+    <% end %><br/><br/>
+    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
+  </div>
+</div>

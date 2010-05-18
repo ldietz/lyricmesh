@@ -26,6 +26,7 @@ h5 {
 }
 p {
   color: #ffffff;
+  display: inline;
 }
 body {
   background-color: #2C2774;

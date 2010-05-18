@@ -22,19 +22,19 @@
     <p>
       <div id="bannermiddle">
         <a href="../"> Home </a> &nbsp;
-        <%= link_to 'Genres', genre_index_path %> <br />
+        <%= link_to 'Genres', genre_path %> <br />
     </p>
     </div>
     <div id="artist">
       <% for a in 'a'..'z' %>
-        <a href="../artists?artist=<%= a %>"><%= a.upcase %> </a>
+        <a href="../content/artists?artist=<%= a %>"><%= a.upcase %> </a>
       <% end %><br /><br />
     </div>
     <div id="bannerleftside">      
       Search by song or artist or browse by artist:
     </div>
     <div id="bannerside">
-      <% form_tag '/search', :multipart => true, :method => 'get' do %>
+      <% form_tag '/search/results', :multipart => true, :method => 'get' do %>
       <%= text_field_tag :q %>
       <%= submit_tag "Search", :name => nil %><br />
       <%= radio_button_tag(:type, 'song', :checked => true) %> 

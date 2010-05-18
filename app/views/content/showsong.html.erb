@@ -1,0 +1,25 @@
+<div id="columns">
+  <div id="adleft">
+    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
+  </div>
+  <div id="adright">
+    <%=  image_tag (@current_album.photo_url, :size =>"140x140") %><h5> 
+    <%= @current_album.album %> <%= @current_album.year %><br /><br/>
+    Other Albums:
+    <% for num in 0.. @albums.count-1 %>
+      <% if @albums[num].album != @current_album.album %>
+        <% cd_cover = "../content/albumsongs?browse=" + @albums[num].id.to_s %>
+        <%= link_to  image_tag (@albums[num].photo_url, :size =>"110x110"), cd_cover %><br/>
+        <%= @albums[num].album %><br/><br/>
+      <% end %>
+    <% end %></h5>
+  </div>
+  <div id="main">
+    <h4>
+      <a href="../content/albums?album=<%= @artists.id %>"> <%= @artists.name %> </a> <br /><br />
+      <%= @songs.lyrics %>
+    </h4><br/><br/>
+    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
+  </div>
+</div>
+

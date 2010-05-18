@@ -15,5 +15,6 @@ module GenreHelper
     end
     @genres.sort!
     @count = @genres.count
+    @genre_url = "../search/showgenres?genre="
   end
 end

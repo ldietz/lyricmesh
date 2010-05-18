@@ -1,0 +1,27 @@
+<div id="columns">
+  <div id="adleft">
+  </div>
+  <div id="adright">
+    <h3> 
+    <%= @artist.name %>
+    <%= image_tag (@artist.image_url, :size =>"140x140") %>
+    <%= @artist.genre %><br/>
+    <p> <%= @artist.description %> </p>
+    </h3>
+  </div>
+  <div id="main">
+    <h2>
+      Select an Album<br />
+      <%= @artist.name %>
+    </h2>
+    <% for album in @albums -%>
+      <h3>
+        <% cd_cover = "../content/albumsongs?browse=" + album.id.to_s %>
+        <a href="../content/albumsongs?browse=<%=h album.id %>"> <%=h album.album %> </a><br />
+        <%= link_to image_tag (album.photo_url, :size =>"100x100"), cd_cover  %><br />
+        <%= album.year %>
+      </h3>
+    <% end %><br/><br/>
+    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
+  </div>
+</div>

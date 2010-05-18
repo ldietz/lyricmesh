@@ -2,4 +2,9 @@
 module ApplicationHelper
   def place_ad
   end
+
+  def artist_link(artist)
+    link_to( artist.name, "../content/albums?album="+artist.id.to_s )
+  end
+  
 end
