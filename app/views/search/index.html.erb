@@ -4,8 +4,17 @@
   </div>
   <div id="main">
     <h3>
-      Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above
+      Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above<br/><br/><br/>
+      Top Artists
     </h3>
+    <h4>
+      <% find_top_artists %>
+      <% for num in 0..4 -%>
+        <%= @name[num] %>
+        <% @find_artist = Artist.find(:all, :conditions =>{:name =>@name[num]}).first %>
+        <%= if @find_artist != nil; image_tag( Artist.find(:all, :conditions =>{:name =>@name[num]}).first.image_url ); end %>
+      <% end %>
+    </h4>
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
   </div>
 </div>
