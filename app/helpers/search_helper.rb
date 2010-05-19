@@ -34,5 +34,25 @@ module SearchHelper
       simple_format("did you mean")
     end
   end
-  
+
+  def display_mainpage(num)
+    @counter = 0
+    @num_artist_found = 0
+    @kill_while = 0
+    while( @kill_while == 0 )
+      @find_artist = Artist.find(:all, :conditions =>{:name =>@top_artists[@counter]})
+      if @find_artist != nil and @find_artist.first != nil
+        if @num_artist_found == num
+          @artist_name = @find_artist.first.name
+          image_tag( @find_artist.first.image_url,  :size =>"100x100" )
+          @kill_while = 1
+        else
+          @num_artist_found += 1
+        end
+      else
+        @kill_while = 0
+        @counter += 1
+      end
+    end
+  end
 end
