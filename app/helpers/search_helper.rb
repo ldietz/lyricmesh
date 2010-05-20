@@ -1,9 +1,9 @@
 module SearchHelper
   def initialize_current(song)
-    @current_album = Album.find(song.album_id)
-    @current_artist = Artist.find(Album.find(song.album_id).artist_id)
-    @count = (@current_album.songs.count)
-    @cd_cover =  "../content/albumsongs?browse="
+      @current_album = Album.find(song.album_id)
+      @current_artist = Artist.find(Album.find(song.album_id).artist_id)
+      @count = (@current_album.songs.count)
+      @cd_cover =  "../content/albumsongs?browse="
   end
 
   def print_song_suggestion(songs)
@@ -40,10 +40,14 @@ module SearchHelper
     @num_artist_found = 0
     @kill_while = 0
     @top_three = Array.new
+    @top_images = ["","",""]
+    @top_covers = ["","",""]
     while(@kill_while == 0)
-      @find_artist = Artist.find(:all, :conditions =>{:name =>"A-ha"})
+      @find_artist = Artist.find(:all, :conditions =>{:name =>@top_artists[@counter]})
       if @find_artist != [] and @find_artist.first != nil
         @top_three[@num_artist_found] = @find_artist.first.name
+        @top_images[@num_artist_found] = @find_artist.first.image_url
+        @top_covers[@num_artist_found] = "../content/albums?album="+@find_artist.first.id.to_s
         @counter += 1
         if @num_artist_found != 2
           @num_artist_found += 1

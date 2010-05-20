@@ -11,17 +11,19 @@
     <div id="mainleft">
       <h3>
         <%= @top_three[0] %><br/>
-        <%= image_tag( Artist.find(:all, :conditions =>{:name =>@top_three[0]}).first.image_url) %>
+        <%= link_to image_tag(@top_images[0]), @top_covers[0]  %>
       </h3>
     </div>
     <div id="mainmiddle"><br/>
       <h3>
-        <%= @top_three[1] %> 
+        <%= @top_three[1] %><br/>
+        <%= link_to image_tag(@top_images[2]), @top_covers[2]  %>
       </h3>
     </div>
     <div id="mainright">
       <h3>
-        <%= @top_three[2] %>
+        <%= @top_three[2] %><br/>
+        <%= link_to image_tag(@top_images[2]), @top_covers[2]  %>
       </h3>
     </div><br/><br/>
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
