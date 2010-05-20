@@ -7,22 +7,21 @@
       Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above<br/><br/>
       Top Artists
     </h3>
+    <% display_mainpage(@top_artists) %>
     <div id="mainleft">
       <h3>
-        <%= display_mainpage(0) %><br/>
-        <%= @artist_name %>
+        <%= @top_three[0] %><br/>
+        <%= image_tag( Artist.find(:all, :conditions =>{:name =>@top_three[0]}).first.image_url) %>
       </h3>
     </div>
     <div id="mainmiddle"><br/>
       <h3>
-        <%= display_mainpage(1) %><br/>
-        <%= @artist_name %> 
+        <%= @top_three[1] %> 
       </h3>
     </div>
     <div id="mainright">
       <h3>
-        <%= display_mainpage(2) %><br/>
-        <%= @artist_name %> 
+        <%= @top_three[2] %>
       </h3>
     </div><br/><br/>
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
