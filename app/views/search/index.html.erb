@@ -10,19 +10,19 @@
     <% display_mainpage(@top_artists) %>
     <div id="mainleft">
       <h3>
-        <%= @top_three[0] %><br/>
+        <%= link_to( @top_three[0], @top_covers[0] )  %><br/>
         <%= link_to image_tag(@top_images[0]), @top_covers[0]  %>
       </h3>
     </div>
     <div id="mainmiddle"><br/>
       <h3>
-        <%= @top_three[1] %><br/>
-        <%= link_to image_tag(@top_images[2]), @top_covers[2]  %>
+        <%= link_to( @top_three[1], @top_covers[1] ) %><br/>
+        <%= link_to image_tag(@top_images[1]), @top_covers[1]  %>
       </h3>
     </div>
     <div id="mainright">
       <h3>
-        <%= @top_three[2] %><br/>
+        <%= link_to( @top_three[2], @top_covers[2] ) %><br/>
         <%= link_to image_tag(@top_images[2]), @top_covers[2]  %>
       </h3>
     </div><br/><br/>

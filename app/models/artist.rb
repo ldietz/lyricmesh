@@ -28,8 +28,8 @@ class Artist < ActiveRecord::Base
     if @pull.xpath('//name') != nil
       @names = @pull.xpath('//name')
       @names.each do |name|
-        if Artist.find(:all, :conditions =>{:name =>name}) != []
-          @name[@artist_count] = name.text
+        if Artist.find(:all, :conditions =>{:name =>name.text.upcase}) != []
+          @name[@artist_count] = name.text.upcase
           @artist_count += 1
         end
       end

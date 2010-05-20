@@ -12,7 +12,7 @@ class Song < ActiveRecord::Base
 
   define_index do
     indexes title
-    indexes lyrics
+  #  indexes lyrics
   end
   
 end
