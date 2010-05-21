@@ -1,12 +1,9 @@
-class Song < ActiveRecord::Base
-  belongs_to :album
-  belongs_to :artist
+module BillboardScrape
+  require 'rubygems'
+  require 'nokogiri'
+  require 'open-uri'
 
-  def self.browse(search)
-    find(:all, :conditions => ['album_id LIKE ?',"#{search}"])
-  end
-
-  def self.find_top_songs()
+  def billscrape
     top_100_url = "http://api.billboard.com/apisvc/chart/v1/list?id=379&api_key=w3a5as9mdhnnzu6s4nbj2kja"
     @pull = Nokogiri::XML(open(top_100_url))
     @top_100_artists = @pull.xpath('//chartItem/artist')
@@ -18,16 +15,4 @@ class Song < ActiveRecord::Base
     end 
     puts @top_100
   end
-
-
-  
-  #def self.title(search)
-  #  find(:all, :conditions => ['title LIKE ?', "#{search}%"])
-  #end
-
-  define_index do
-    indexes title
-  #  indexes lyrics
-  end
-  
 end
