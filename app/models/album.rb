@@ -3,7 +3,7 @@ class Album < ActiveRecord::Base
   has_many :songs
   
   def self.search_title(search)
-    find(:all, :conditions => ['artist_id LIKE ?', "#{search}%"])
+    find(:all, :conditions => ['artist_id LIKE ?', "#{search}%"], :include => [:artist])
   end
 
   define_index do
