@@ -11,36 +11,21 @@
     </h3>
   </div>
   <div id="main">
+    <% @count = @albums.count %>
     <div id="mainleft">
-      <% @count = @albums.count %>
       <% for num in 0..@count/3 -%>
-        <h3>
-          <% cd_cover = "../content/albumsongs?browse=" + @albums[num].id.to_s %>
-          <a href="../content/albumsongs?browse=<%=h @albums[num].id %>"> <%=h @albums[num].album %> </a><br />
-          <%= link_to image_tag (@albums[num].photo_url, :size =>"100x100"), cd_cover  %><br />
-          <%= @albums[num].year %>
-        </h3>
+        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div>
     <div id="mainmiddle">
       <h2> Select an Album </h2>
       <% for num in (@count/3)+1..@count*2/3 -%>
-        <h3>
-          <% cd_cover = "../content/albumsongs?browse=" + @albums[num].id.to_s %>
-          <a href="../content/albumsongs?browse=<%=h @albums.id %>"> <%=h @albums[num].album %> </a><br />
-          <%= link_to image_tag (@albums[num].photo_url, :size =>"100x100"), cd_cover  %><br />
-          <%= @albums[num].year %>
-        </h3>
+        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div>
     <div id="mainright">
       <% for num in (@count*2/3)+1..@count-1 -%>
-        <h3>
-          <% cd_cover = "../content/albumsongs?browse=" + @albums[num].id.to_s %>
-          <a href="../content/albumsongs?browse=<%=h @albums[num].id %>"> <%=h @albums[num].album %> </a><br />
-          <%= link_to image_tag (@albums[num].photo_url, :size =>"100x100"), cd_cover  %><br />
-          <%= @albums[num].year %>
-        </h3>
+        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div><br /><br />
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>

@@ -1,13 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.alpha 'alpha/:letter', :controller => 'artists', :action => 'alpha'
   map.genre 'search/browsegenres', :controller => 'search', :action => 'browsegenres'
   map.show_genre 'search/showgenres', :controller => 'search', :action => 'showgenres'
 
-  map.resources :lyrics
-  map.resources :artists
-  map.resources :albums
-  map.resources :songs
-  # The priority is based upon order of creation: first created -> highest priority.
+ # map.resources :lyrics
+ # map.resources :artists
+ # map.resources :albums
+ # map.resources :songs
+ # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'

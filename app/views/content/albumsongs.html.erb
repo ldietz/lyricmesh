@@ -13,11 +13,8 @@
   <div id="main">
     <h2> Select a Song </h2><br />
     <% for song in @songs -%>
-      <h3>
-        <a href="../content/showsong?id=<%=h song.id %>&album=<%=h @album.artist_id %>"> <%=h song.title %> </a>
-      </h3>
+      <h3><%= link_to(song.title,"../content/showsong?id="+song.id+"&album="+ @album.artist_id) %></h3>
     <% end %><br/><br/>
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
   </div>
 </div>
-

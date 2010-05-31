@@ -7,23 +7,23 @@
       Welcome to Lyric Mesh! <br /> Browse or Search for your favorite Artist above<br/><br/>
       Top Artists
     </h3>
-    <% display_mainpage(@top_artists) %>
+    <% top_artists(@top_artists) %>
     <div id="mainleft">
       <h3>
-        <%= link_to( @top_three[0], @top_covers[0] )  %><br/>
-        <%= link_to image_tag(@top_images[0]), @top_covers[0]  %>
+        <%= link_to( @top[:names][0], @top[:covers][0] )  %><br/>
+        <%= link_to image_tag(@top[:images][0]), @top[:covers][0]  %>
       </h3>
     </div>
     <div id="mainmiddle"><br/>
       <h3>
-        <%= link_to( @top_three[1], @top_covers[1] ) %><br/>
-        <%= link_to image_tag(@top_images[1]), @top_covers[1]  %>
+        <%= link_to( @top[:names][1], @top[:covers][1] )  %><br/>
+        <%= link_to image_tag(@top[:images][1]), @top[:covers][1]  %>
       </h3>
     </div>
     <div id="mainright">
       <h3>
-        <%= link_to( @top_three[2], @top_covers[2] ) %><br/>
-        <%= link_to image_tag(@top_images[2]), @top_covers[2]  %>
+        <%= link_to( @top[:names][2], @top[:covers][2] )  %><br/>
+        <%= link_to image_tag(@top[:images][2]), @top[:covers][2]  %>
       </h3>
     </div><br/><br/>
     <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>

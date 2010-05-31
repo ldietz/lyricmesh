@@ -2,14 +2,8 @@ class Artist < ActiveRecord::Base
   has_many :albums
   has_many :songs, :through => :albums
   
-  # cattr_reader :per_page
-  # @@per_page = 1
-  
   def self.search_name(search)
     find(:all, :conditions => ['name LIKE ?', "#{search}%"])
-    # paginate :per_page => 17, :page => page,
-    # :conditions => ['name like ?', "%#{search}%"],
-    # :order => 'name'
   end
 
   def self.search_genre(search)
@@ -25,7 +19,7 @@ class Artist < ActiveRecord::Base
     @artist_count = 0
     top_artists_url = "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=USA&api_key=b25b959554ed76058ac220b7b2e0a026"
     @pull = Nokogiri::XML(open(top_artists_url))
-    if @pull.xpath('//name') != nil
+    unless @pull.xpath('//name') == nil
       @names = @pull.xpath('//name')
       @names.each do |name|
         if Artist.find(:all, :conditions =>{:name =>name.text.upcase}) != []
@@ -37,7 +31,4 @@ class Artist < ActiveRecord::Base
     return @name
   end
 
-
-
-  
 end

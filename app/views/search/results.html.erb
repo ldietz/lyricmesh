@@ -8,7 +8,7 @@
     <% if @songs != nil %>
       <h5>
       <%= did_you_mean(@songs.suggestion) %>
-      <%= print_song_suggestion(@songs) %></h5>
+      <%= song_suggestion(@songs) %></h5>
       <% for song in @songs -%>
         <% initialize_current(song) %>
         <div class="searchleft"><br/><br/><br/><br/>
@@ -35,10 +35,10 @@
     <% end %>
     <% if @artists != nil %>
       <%= did_you_mean(@artists.suggestion) %>
-      <%= print_suggestion %>
+      <%= artist_suggestion %>
       <% for artist in @artists -%>
         <h3>
-          <a href="../content/albums?album=<%=h artist.id %>"> <%= artist.name %> </a><br/>
+          <%= link_to(artist.name, "../content/albums?album="+artist.id) %><br/> 
           <% for album in artist.albums -%>
             <% cd_cover = "../content/albumsongs?browse=" + album.id.to_s %>
             <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>
