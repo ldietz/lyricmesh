@@ -1,7 +1,6 @@
 class SearchController < ApplicationController
   def index
     @top_artists = Artist.search_top()
-    @top_songs = Song.find_top_songs()
   end
 
   def browsegenres

@@ -13,18 +13,18 @@
   <div id="main">
     <% @count = @albums.count %>
     <div id="mainleft">
-      <% for num in 0..@count/3 -%>
+      <% for @num in 0..@count/3 -%>
         <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div>
     <div id="mainmiddle">
       <h2> Select an Album </h2>
-      <% for num in (@count/3)+1..@count*2/3 -%>
+      <% for @num in (@count/3)+1..@count*2/3 -%>
         <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div>
     <div id="mainright">
-      <% for num in (@count*2/3)+1..@count-1 -%>
+      <% for @num in (@count*2/3)+1..@count-1 -%>
         <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
       <% end %>
     </div><br /><br />

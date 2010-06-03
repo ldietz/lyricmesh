@@ -59,9 +59,7 @@ module SearchHelper
   def gather_genres
     @genres = []
     Artist.all.each do |artist|
-      @genres.each do |genre|
-        @genres << artist.genre if genre != artist.genre and artist.genre != nil
-      end
+      @genres << artist.genre if @genres.include?(artist.genre) == false and artist.genre != nil
     end
     @genres.sort!
     @total_genres = @genres.count

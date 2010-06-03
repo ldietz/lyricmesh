@@ -19,6 +19,7 @@ module PopulateLyrics
           #transverse through albums
           albums_page = Nokogiri::HTML(open(main_url + artist[:href]))
           albums_page.css(".Page b").each {|album| @albums << album.text}
+          @num = 0
           albums_page.css(".Page p").each do |album|
             @num += 1
             unless @albums[@num-1] == nil
@@ -36,7 +37,8 @@ module PopulateLyrics
                     #navigate through lyrics page to get lyrics
                     unless lyric_page == OpenURI::HTTPError
                       song_lyrics = lyric_page.at_css("#LyricsMainTable")
-                      start_position = song_lyrics.to_s =~ /END OF RINGTONE 1/ + 24
+                      start_position = song_lyrics.to_s =~ /END OF RINGTONE 1/
+                      start_position += 24
                       end_position = song_lyrics.to_s =~ /<br><br><br><br>/
                       unless end_position == false
                         end_position -= 1
@@ -65,13 +67,12 @@ module PopulateLyrics
       #initialize artist specific API url string
       artist_sub = artist.name.gsub(" ", "+")
       image_url = generic_url + image_append  + artist.name.gsub(" ", "+") + api_key
-      artist_info_url = generic_url + info_append + artist.sub + api_key
-      album_info_url = summary_url + artist_sub + "&album=" + album.album.gsub(" ", "+").gsub("\"", "")
+      artist_info_url = generic_url + info_append + artist_sub + api_key
       #get artist image
       @image_pull = Nokogiri::XML(open(image_url)) rescue OpenURI::HTTPError
       if @image_pull != OpenURI::HTTPError
         if @image_pull.xpath('//size[@name="largesquare"]') != nil
-          photo_url = @pull.xpath('//size[@name="largesquare"]')
+          photo_url = @image_pull.xpath('//size[@name="largesquare"]')
           if photo_url[0] != nil
             Artist.update(artist.id, :image_url => photo_url[0].content)
           end
@@ -90,6 +91,7 @@ module PopulateLyrics
       end
       #get album description
       artist.albums.each do |album|
+        album_info_url = summary_url + artist_sub + "&album=" + album.album.gsub(" ", "+").gsub("\"", "")
         @album_pull = Nokogiri::XML(open(album_info_url)) rescue OpenURI::HTTPError
         if @album_pull != OpenURI::HTTPError
           if @album_pull.xpath('//summary') != nil
@@ -107,6 +109,7 @@ module PopulateLyrics
     Album.all.each do |q|
       if q.album != nil
         #get amazon's album image/date/description
+        artist = Artist.find(q.artist_id).name
         @album_info = Amazon::Ecs.item_search((artist + q.album), {:type => 'Keywords', :response_group => 'Large', :sort => 'relevancerank', :item_page => '1', :search_index => 'Music'})
         album = @album_info.items.first
         if album != nil

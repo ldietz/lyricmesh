@@ -38,7 +38,7 @@
       <%= artist_suggestion %>
       <% for artist in @artists -%>
         <h3>
-          <%= link_to(artist.name, "../content/albums?album="+artist.id) %><br/> 
+          <%= link_to(artist.name, "../content/albums?album="+artist.id.to_s) %><br/> 
           <% for album in artist.albums -%>
             <% cd_cover = "../content/albumsongs?browse=" + album.id.to_s %>
             <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>

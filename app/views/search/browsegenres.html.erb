@@ -5,7 +5,7 @@
   <div id="main">
     <div id="mainleft">
       <% gather_genres %>
-      <% for num in 0..@total_gegnres/3 -%>
+      <% for num in 0..@total_genres/3 -%>
         <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
       <% end %>
     </div>
