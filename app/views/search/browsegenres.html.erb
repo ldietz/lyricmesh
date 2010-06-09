@@ -1,26 +1,21 @@
-<div id="columns">
-  <div id="adleft">
-    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
-  </div>
-  <div id="main">
-    <div id="mainleft">
-      <% gather_genres %>
-      <% for num in 0..@total_genres/3 -%>
-        <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
-      <% end %>
-    </div>
-    <div id="mainmiddle">
-      <h2> Select an Artist </h2>
-      <% for num in (@total_genres/3)+1..@total_genres*2/3 -%>
-        <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
-      <% end %>
-    </div>
-    <div id="mainright">
-      <% for num in (@total_genres*2/3)+1..@total_genres-1 -%>
-        <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
-      <% end %>
-    </div><br/><br/>
-    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
-  </div>
+<div id="mainleft">
+  <% gather_genres %>
+  <% for num in 0..@total_genres/3 -%>
+  <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
+  <% end %>
 </div>
+<div id="mainmiddle">
+  <h2> Select an Artist </h2>
+  <% for num in (@total_genres/3)+1..@total_genres*2/3 -%>
+  <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
+  <% end %>
+</div>
+<div id="mainright">
+  <% for num in (@total_genres*2/3)+1..@total_genres-1 -%>
+  <h3><%= link_to( @genres[num], @genre_url+@genres[num]) %><br/></h3>
+  <% end %>
+</div><br/><br/>
+
+
+
 

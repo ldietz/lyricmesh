@@ -130,6 +130,12 @@ a:hover {
     padding-top: 20px;
     padding-left: 20px;
 }
+#comments {
+  width:  450px;
+  text-align: left;
+  margin-left: 80px;
+  word-wrap: break-word;
+}
 #mainmid {
   width:    600px;
   overflow: wrap;

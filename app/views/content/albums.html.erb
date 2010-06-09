@@ -1,33 +1,26 @@
-<div id="columns">
-  <div id="adleft">
-    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
+<% content_for :adright do %>
+<h3> 
+  <%= @artist.name %>
+  <%= image_tag (@artist.image_url, :size =>"140x140") %>
+  <%= @artist.genre %><br/>
+  <p> <%= @artist.description %> </p>
+</h3>
+<% end %>
+<% @total_albums = @albums.count %>
+<div id="mainleft">
+  <% for @num in 0..@total_albums/3 -%>
+    <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
+  <% end %>
   </div>
-  <div id="adright">
-    <h3> 
-    <%= @artist.name %>
-    <%= image_tag (@artist.image_url, :size =>"140x140") %>
-    <%= @artist.genre %><br/>
-    <p> <%= @artist.description %> </p>
-    </h3>
-  </div>
-  <div id="main">
-    <% @count = @albums.count %>
-    <div id="mainleft">
-      <% for @num in 0..@count/3 -%>
-        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
-      <% end %>
-    </div>
-    <div id="mainmiddle">
-      <h2> Select an Album </h2>
-      <% for @num in (@count/3)+1..@count*2/3 -%>
-        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
-      <% end %>
-    </div>
-    <div id="mainright">
-      <% for @num in (@count*2/3)+1..@count-1 -%>
-        <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
-      <% end %>
-    </div><br /><br />
-    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
-  </div>
+<div id="mainmiddle">
+  <h2> Select an Album </h2>
+  <% for @num in (@total_albums/3)+1..@total_albums*2/3 -%>
+    <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
+  <% end %>
 </div>
+<div id="mainright">
+  <% for @num in (@total_albums*2/3)+1..@total_albums-1 -%>
+    <%= render :partial => 'layouts/album_content', :locals => {:post => @post} %>
+  <% end %>
+</div>
+

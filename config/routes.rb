@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
  # map.resources :lyrics
  # map.resources :artists
  # map.resources :albums
- # map.resources :songs
+   map.songs 'search/index', :controller => 'content', :action => 'showsong'
  # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

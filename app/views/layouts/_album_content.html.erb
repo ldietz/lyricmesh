@@ -1,6 +1,6 @@
 <h3>
   <% cd_cover = "../content/albumsongs?browse=" + @albums[@num].id.to_s %>
-  <%= link_to(@albums[@num].album, cd_cover) %><br/>
+  <%= link_to(@albums[@num].title, cd_cover) %><br/>
   <%= link_to image_tag (@albums[@num].photo_url, :size =>"100x100"), cd_cover  %><br/>
   <%= @albums[@num].year %>
 </h3>

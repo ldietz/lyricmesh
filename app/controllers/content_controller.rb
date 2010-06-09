@@ -15,9 +15,14 @@ class ContentController < ApplicationController
   end
 
   def showsong
-    @songs = Song.find(params[:id], :include => [:album])
-    @current_album = @songs.album 
+    @song = Song.find(params[:id], :include => [:album])
+    @current_album = @song.album 
     @artist = @current_album.artist
     @artist_albums = @artist.albums
+  end
+  def comment
+    Song.find(params[:id]).comments.create(params[:comment])
+    flash[:notice] = "Added your comment"
+    redirect_to :action => "showsong", :id => params[:id]
   end
 end

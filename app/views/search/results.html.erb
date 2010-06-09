@@ -1,51 +1,45 @@
-<div id="columns">
-  <div id="adleft">
-    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
-  </div>
-  <div id="main">
-    <h2> Search Results </h2><br />
-    <% previous_song = " " %>
-    <% if @songs != nil %>
-      <h5>
-      <%= did_you_mean(@songs.suggestion) %>
-      <%= song_suggestion(@songs) %></h5>
-      <% for song in @songs -%>
-        <% initialize_current(song) %>
-        <div class="searchleft"><br/><br/><br/><br/>
-          <% search_url(0, @count/2-1, @current_album, @current_artist) %>
-          <% @url.each do |url| -%>
-            <%= link_to(@url_title[@url.index(url)], url) %><br/>
-          <% end %>
-        </div>
-        <div class="searchright"><br/><br/><br/><br/>
-          <% search_url(@count/2, @count-1, @current_album, @current_artist) %>
-          <% @url.each do |url| -%>
-            <%= link_to(@url_title[@url.index(url)], url) %><br/>
-          <% end %>
-        </div>     
-        <div id="searchmiddle">
-          <h3>         
-            <%= link_to(song.title, "../content/showsong?id="+song.id.to_s+"&album"+@current_artist.id.to_s) %><br/>
-            <%= link_to(@current_artist.name, "../content/albums?album="+@current_artist.id.to_s) %><br/>
-            <% @cd_cover += @current_album.id.to_s %>
-            <%= link_to image_tag (@current_album.photo_url, :size =>"120x120"), @cd_cover  %>
-          </h3>
-        </div>
+<h2> Search Results </h2><br />
+<% previous_song = " " %>
+<% if @songs != nil %>
+  <h5>
+    <%= did_you_mean(@songs.suggestion) %>
+    <%= song_suggestion(@songs) %>
+  </h5>
+  <% for song in @songs -%>
+    <% initialize_current(song) %>
+    <div class="searchleft"><br/><br/><br/><br/>
+      <% search_url(0, @count/2-1, @current_album, @current_artist) %>
+      <% @url.each do |url| -%>
+        <%= link_to(@url_title[@url.index(url)], url) %><br/>
       <% end %>
-    <% end %>
-    <% if @artists != nil %>
-      <%= did_you_mean(@artists.suggestion) %>
-      <%= artist_suggestion %>
-      <% for artist in @artists -%>
-        <h3>
-          <%= link_to(artist.name, "../content/albums?album="+artist.id.to_s) %><br/> 
-          <% for album in artist.albums -%>
-            <% cd_cover = "../content/albumsongs?browse=" + album.id.to_s %>
-            <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>
-          <% end %>
-        </h3>
+    </div>
+    <div class="searchright"><br/><br/><br/><br/>
+      <% search_url(@count/2, @count-1, @current_album, @current_artist) %>
+      <% @url.each do |url| -%>
+        <%= link_to(@url_title[@url.index(url)], url) %><br/>
       <% end %>
-    <% end %><br/><br/>
-    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
-  </div>
-</div>
+    </div>     
+    <div id="searchmiddle">
+      <h3>         
+        <%= link_to(song.title, "../content/showsong?id="+song.id.to_s+"&album"+@current_artist.id.to_s) %><br/>
+        <%= link_to(@current_artist.name, "../content/albums?album="+@current_artist.id.to_s) %><br/>
+        <% @cd_cover += @current_album.id.to_s %>
+        <%= link_to image_tag (@current_album.photo_url, :size =>"120x120"), @cd_cover  %>
+      </h3>
+    </div>
+  <% end %>
+<% end %>
+<% if @artists != nil %>
+  <%= did_you_mean(@artists.suggestion) %>
+  <%= artist_suggestion %>
+  <% for artist in @artists -%>
+    <h3>
+      <%= link_to(artist.name, "../content/albums?album="+artist.id.to_s) %><br/> 
+      <% for album in artist.albums -%>
+        <% cd_cover = "../content/albumsongs?browse=" + album.id.to_s %>
+        <%= link_to image_tag (album.photo_url, :size =>"50x50" ), cd_cover  %>
+      <% end %>
+    </h3>
+  <% end %>
+<% end %><br/><br/>
+

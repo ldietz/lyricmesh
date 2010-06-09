@@ -38,8 +38,18 @@
       <% end %>
     </div>
   </div>
-  <%= yield %>
-</div>
+  <div id="columns">
+    <div id="adright">
+      <%= yield :adright %>
+    </div>
+    <div id="adleft">
+      <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
+    </div>
+    <div id="main">
+      <%= yield %>
+    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
+    </div>
+  </div>
 </body>
 </html>
 

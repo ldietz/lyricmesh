@@ -44,7 +44,7 @@ module SearchHelper
   # homepage helpers
   def top_artists(find_artist)
     @top = Hash.new
-    @top[:names], @top[:images], @top[:covers] = [],[],[]
+    @top[:names], @top[:images], @top[:covers] = ["","",""],["","",""],["","",""]
     10.times do |i|
       artist = Artist.first(:conditions => ['name LIKE ?', @top_artists[i]])
       unless artist == nil

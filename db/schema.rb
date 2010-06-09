@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100506193224) do
+ActiveRecord::Schema.define(:version => 20100608203057) do
 
   create_table "albums", :force => true do |t|
-    t.string   "album"
+    t.string   "title"
     t.string   "year"
     t.string   "photo_url"
     t.integer  "artist_id"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20100506193224) do
     t.text     "description"
     t.string   "genre"
     t.string   "image_url"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "songs", :force => true do |t|

@@ -1,8 +1,5 @@
-<div id="columns">
-  <div id="adleft">
-    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
-  </div>
-  <div id="main">
+
+
     <div id="mainleft">
       <% @count = @artists.count %>
       <% for num in 0..@count/3 -%>
@@ -20,7 +17,6 @@
         <h3><%= artist_link(@artists[num]) %></h3>
       <% end %>
     </div><br/><br/>
-    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
-  </div>
-</div>
+
+
 

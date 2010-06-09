@@ -1,25 +1,38 @@
-<div id="columns">
-  <div id="adleft">
-    <% render :partial => 'layouts/adcode', :locals => {:post => @post} %>
-  </div>
-  <div id="adright">
-    <%= image_tag (@current_album.photo_url, :size =>"140x140") %><h5> 
-    <%= @current_album.album %> <%= @current_album.year %><br /><br/>
+<% content_for :adright do %>
+  <%= image_tag (@current_album.photo_url, :size =>"140x140") %>
+  <h5> 
+    <%= @current_album.title %> <%= @current_album.year %><br /><br/>
     Other Albums:
     <% for num in 0.. @artist_albums.count-1 %>
-      <% if @artist_albums[num].album != @current_album.album %>
+      <% if @artist_albums[num].title != @current_album.title %>
         <% cd_cover = "../content/albumsongs?browse=" + @artist_albums[num].id.to_s %>
         <%= link_to  image_tag (@artist_albums[num].photo_url, :size =>"110x110"), cd_cover %><br/>
-        <%= @artist_albums[num].album %><br/><br/>
+        <%= @artist_albums[num].title %><br/><br/>
       <% end %>
-    <% end %></h5>
-  </div>
-  <div id="main">
-    <h4>
-      <a href="../content/albums?album=<%= @artist.id %>"> <%= @artist.name %> </a> <br /><br />
-      <%= @songs.lyrics %>
-    </h4><br/><br/>
-    <%= render :partial => 'layouts/bottombackground', :locals => {:post => @post} %>
-  </div>
-</div>
+    <% end %>
+  </h5>
+<% end %>
 
+<h4>
+  <a href="../content/albums?album=<%= @artist.id %>"> <%= @artist.name %> </a> <br /><br />
+  <%= @song.lyrics %>
+</h4><br/><br/>
+<div id="comments">
+  <h4>Comments</h4>
+    <% for comment in @song.comments %>
+    <p>
+      <%= comment.name %><br/>
+      <%= comment.body %><br/>
+      <hr width="445" align="left">
+    </p>
+  <% end %>
+  <h4>Add Comment:</h4>
+  <%= form_tag :action => "comment", :id => @song %>
+  <p>
+    Name:<br>
+    <%= text_field "comment", "name" %>
+    <%= text_area "comment", "body", :size =>"60x5" %><br/>
+    <%= submit_tag "Comment" %>
+  </p>
+  </form>
+</div>
