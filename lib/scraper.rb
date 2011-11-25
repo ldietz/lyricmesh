@@ -97,8 +97,8 @@ module Scraper
     @generic_url = "http://ws.audioscrobbler.com/2.0/?method="
     @image_append = "artist.getimages&artist="
     @info_append = "artist.getinfo&artist="
-    @api_key = "&api_key=b25b959554ed76058ac220b7b2e0a026"
-    @summary_url = @generic_url + "album.getinfo&api_key=b25b959554ed76058ac220b7b2e0a026&artist="
+    @api_key = "&api_key="
+    @summary_url = @generic_url + "album.getinfo&api_key=6&artist="
     
     def self.start
       Artist.all.each do |@artist|
@@ -159,8 +159,8 @@ module Scraper
     attr_accessor
 
     def self.start
-      Amazon::Ecs.options = {:aWS_access_key_id => 'AKIAJAGMNKZHCOU7CBMQ',
-        :aWS_secret_key => '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'}
+      Amazon::Ecs.options = {:aWS_access_key_id => '',
+        :aWS_secret_key => ''}
       Album.all.each do |@q|
         if @q.album != nil
           search_album
